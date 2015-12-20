@@ -47,3 +47,10 @@ build-on-docker-machine:
 # ...
 # output can be found in the local out folder
 ```
+
+
+LICENSE
+==========
+
+[WTFPL](http://www.wtfpl.net/about/)
+
