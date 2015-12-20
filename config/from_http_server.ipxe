@@ -1,0 +1,4 @@
+#!ipxe
+
+dhcp
+chain http://172.20.0.11/ipxe/bootstrap.ipxe

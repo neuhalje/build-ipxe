@@ -5,14 +5,18 @@ build:
                         git pull --rebase;
                         cd src;
                         make clean;
-                        make bin/undionly.kpxe &&
-                        cp bin/undionly.kpxe /out/.'
+                        make ${MAKE_TARGET} ${DEBUG_OPTIONS} ${OPTIONS} &&
+                        cp ${MAKE_TARGET} /out/.'
     volumes: 
-        - ../out:/out
+        - ./out:/out
+        - ./config:/config
     working_dir: /root/ipxe
+    env_file:
+      - ./build-options.env
 
-build-mac: 
+build-on-docker-machine: 
     extends:
       service: build
     volumes: 
         - /mnt/hgfs/Users/jens/Documents/projects/admin/pxe/out:/out
+        - /mnt/hgfs/Users/jens/Documents/projects/admin/pxe/config:/config
