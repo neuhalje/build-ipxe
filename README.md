@@ -6,9 +6,10 @@ Build [ipxe](http://ipxe.org) in a [Docker](http://docker.io) VM. Supports [Dock
 TL;DR
 =====
 
-0) Only for Docker Machine builds: Edit `docker-compose.yml` and modify the mount points in `build-on-docker-machine.columes`.
-1) Edit `build-options.env` 
-2) run `./build_ipxe.sh`
+0. Only for Docker Machine builds: Edit `docker-compose.yml` and modify the mount points in `build-on-docker-machine.columes`.
+1. Edit `build-options.env` 
+2. (optionaly) Edit `config/from_http_server.ipxe`
+3. run `./build_ipxe.sh`
 
 Usage
 ======
@@ -48,6 +49,10 @@ build-on-docker-machine:
 # output can be found in the local out folder
 ```
 
+CONTRIBUTING
+=============
+
+Pull requests are welcome.
 
 LICENSE
 ==========
