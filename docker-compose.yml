@@ -1,0 +1,18 @@
+build: 
+    build: . 
+    command: sh -c 'ls;
+                        rm -rf /out/*;
+                        git pull --rebase;
+                        cd src;
+                        make clean;
+                        make bin/undionly.kpxe &&
+                        cp bin/undionly.kpxe /out/.'
+    volumes: 
+        - ../out:/out
+    working_dir: /root/ipxe
+
+build-mac: 
+    extends:
+      service: build
+    volumes: 
+        - /mnt/hgfs/Users/jens/Documents/projects/admin/pxe/out:/out
