@@ -9,8 +9,8 @@ build:
                         cp -v ${MAKE_TARGET} /out/.;
                         env'
     volumes: 
-        - ./out:/out
-        - ./config:/config
+        - ./out:/out:rw
+        - ./config:/config:ro
     working_dir: /root/ipxe
     env_file:
       - ./build-options.env
@@ -19,5 +19,5 @@ build-on-docker-machine:
     extends:
       service: build
     volumes: 
-        - /mnt/hgfs/Users/jens/Documents/projects/admin/pxe/out:/out
-        - /mnt/hgfs/Users/jens/Documents/projects/admin/pxe/config:/config
+        - /mnt/hgfs/Users/jens/Documents/projects/admin/pxe/out:/out:rw
+        - /mnt/hgfs/Users/jens/Documents/projects/admin/pxe/config:/config:ro
