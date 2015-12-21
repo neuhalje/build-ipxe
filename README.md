@@ -45,8 +45,26 @@ build-on-docker-machine-fusion:
 
 ``` 
 ./build_ipxe.sh
+
+Building build-on-docker-machine-fusion...
+Step 0 : FROM ubuntu:15.04
+ ---> 565cf6106ea7
+Step 1 : MAINTAINER Jens Neuhalfen <Jens@neuhalfen.name>
+ ---> Using cache
+ ---> 6174b09280a7
 # ...
-# output can be found in the local out folder
+  [BUILD] bin/davicom.ids.o
+  [BUILD] bin/3c509.ids.o
+  [BUILD] bin/igbvf_main.ids.o
+# ...
+
+################################## build complete
+##
+## Build output can be found in ./out
+##
+## ./out/undionly.kpxe
+##
+
 ```
 
 CONTRIBUTING
