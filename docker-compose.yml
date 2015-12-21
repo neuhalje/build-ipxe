@@ -6,8 +6,7 @@ build:
                         cd src;
                         make clean;
                         make ${MAKE_TARGET} ${DEBUG_OPTIONS} ${OPTIONS} &&
-                        cp -v ${MAKE_TARGET} /out/.;
-                        env'
+                        cp -v ${MAKE_TARGET} /out/.'
     volumes: 
         - ./out:/out:rw
         - ./config:/config:ro
