@@ -15,9 +15,9 @@ build:
     env_file:
       - ./build-options.env
 
-build-on-docker-machine: 
+build-on-docker-machine-fusion: 
     extends:
       service: build
     volumes: 
-        - /mnt/hgfs/Users/jens/Documents/projects/admin/pxe/out:/out:rw
-        - /mnt/hgfs/Users/jens/Documents/projects/admin/pxe/config:/config:ro
+        - /mnt/hgfs/${PWD}/out:/out:rw
+        - /mnt/hgfs/${PWD}/config:/config:ro

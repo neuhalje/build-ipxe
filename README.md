@@ -6,9 +6,8 @@ Build [ipxe](http://ipxe.org) in a [Docker](http://docker.io) VM. Supports [Dock
 TL;DR
 =====
 
-0. Only for Docker Machine builds: Edit `docker-compose.yml` and modify the mount points in `build-on-docker-machine.columes`.
-1. Edit `build-options.env` 
-2. (optionaly) Edit `config/from_http_server.ipxe`
+1. Edit `build-options.env` to configure e.g. the path to the embedded script
+2. (optionaly) Edit or copy the embedded script `config/from_http_server.ipxe`
 3. run `./build_ipxe.sh`
 
 Usage
@@ -24,22 +23,23 @@ Configuration is done in `build-options.env`.
 
 ### Docker Machine
 
-The mountpoints on Docker Machine (e.g. Mac OS) are hardcoded in `docker-compose.yml`:
+The mountpoints on Docker Machine (e.g. Mac OS) are hardcoded to use `hgfs` (VMWARE Fusion). Pull requests for e.g. [VirtualBox](https://www.virtualbox.org) or [Joyent Triton](https://apidocs.joyent.com/docker/) are weclome.
 
 ```yaml
 # ...
-build-on-docker-machine: 
+
+build-on-docker-machine-fusion: 
     extends:
       service: build
     volumes: 
-        - /mnt/hgfs/Users/jens/Documents/projects/admin/pxe/out:/out:rw
-        - /mnt/hgfs/Users/jens/Documents/projects/admin/pxe/config:/config:ro
+        - /mnt/hgfs/${PWD}/out:/out:rw
+        - /mnt/hgfs/${PWD}/config:/config:ro
 ```
 
 ### Mapped directories
 
-* `./input` : Configuration files used inside the vm, e.g. the embedded script.
-* `./out` : Where the `MAKE_TARGET` is copied to after build.
+* `./input` : Configuration files used inside the vm, e.g. the embedded script. Mapped to `/input`.
+* `./out` : Where the `MAKE_TARGET` is copied to after build. Mapped to `/out`.
 
 ### Build
 
