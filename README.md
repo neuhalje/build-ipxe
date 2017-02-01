@@ -6,7 +6,7 @@ Build [ipxe](http://ipxe.org) in a [Docker](http://docker.io) VM. Supports [Dock
 TL;DR
 =====
 
-1. Edit `build-options.env` to configure e.g. the path to the embedded script
+1. Edit `.env` to configure e.g. the path to the embedded script
 2. (optionaly) Edit or copy the embedded script `config/from_http_server.ipxe`
 3. run `./build_ipxe.sh`
 
@@ -15,7 +15,7 @@ Usage
 
 ### Configure
 
-Configuration is done in `build-options.env`.
+Configuration is done in [`.env`](./.env).
 
 * `MAKE_TARGET` : What to build, e.g. `bin/undionly.kpxe`
 * `OPTIONS` : Options passed to make, e.g. `EMBED=/config/from_http_server.ipxe`
